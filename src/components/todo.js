@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "./form";
 
-const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
+const Todo = ({ todos, completeTodo, removeTodo, updateTodo, addTodo }) => {
   const [edit, setEdit] = useState({ id: null, value: "" });
 
   // const [hidden, setHidden] = useState(false);
@@ -14,34 +14,37 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
     });
   };
 
-  if (edit.id) {
-    return <Form edit={edit} onSubmit={submitUpdate} />;
-  }
-
-  return todos.map((todo, index) => (
-    <div
-      className={todo.isComplete ? "todo-row complete" : "todo-row"}
-      key={index}
-    >
-      <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-        {todo.text}
-      </div>
-
-      <div className="icons">
-        <button
-          className="editBtn"
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
+  return edit.id ? (
+    <Form key={"form" + edit.id} edit={edit} onSubmit={submitUpdate} />
+  ) : (
+    <>
+      <Form onSubmit={addTodo} />
+      {todos.map((todo, index) => (
+        <div
+          className={todo.isComplete ? "todo-row complete" : "todo-row"}
+          key={index}
         >
-          {" "}
-          Edit{" "}
-        </button>
-        <button className="delBtn" onClick={() => removeTodo(todo.id)}>
-          {" "}
-          Delete
-        </button>
-      </div>
-    </div>
-  ));
+          <div key={todo.id} onClick={() => completeTodo(todo.id)}>
+            {todo.text}
+          </div>
+
+          <div className="icons">
+            <button
+              className="editBtn"
+              onClick={() => setEdit({ id: todo.id, value: todo.text })}
+            >
+              {" "}
+              Edit{" "}
+            </button>
+            <button className="delBtn" onClick={() => removeTodo(todo.id)}>
+              {" "}
+              Delete
+            </button>
+          </div>
+        </div>
+      ))}
+    </>
+  );
 };
 
 export default Todo;
