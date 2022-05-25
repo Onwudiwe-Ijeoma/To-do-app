@@ -19,8 +19,9 @@ const Form = (props) => {
     e.preventDefault();
 
     props.onSubmit({
-      id: Math.floor(Math.random() * 1000),
+      id: props.edit ? props.edit.id : Math.floor(Math.random() * 1000),
       text: input,
+      isComplete: false,
     });
 
     setInput(""); //clears the text after typing
