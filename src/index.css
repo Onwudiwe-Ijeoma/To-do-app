@@ -1,13 +1,138 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    background: lightcoral
+}
+
+.todo-app {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 520px;
+    /*min-height: 600px;*/
+    background: #161a2b;
+    text-align: center;
+    margin: 128px auto;
+    border-radius: 10px;
+    padding-bottom: 32px;
+}
+
+h1 {
+    margin: 32px 0;
+    color: #fff;
+    font-size: 24px;
+}
+
+.complete {
+    text-decoration: line-through;
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.todoForm {
+    margin-bottom: 32px;
+
+}
+
+.todoInput {
+    padding: 14px 32px 14px 16px;
+    border-radius: 4px 0 0 4px;
+    border: 2px solid #5d0cff;
+    outline: none;
+    width: 320px;
+    color: #000;
+
+}
+
+.todoInput::placeholder {
+    color: #e2e2e2;
+}
+
+.todoBtn {
+    padding: 16px;
+    border: none;
+    border-radius: 0 4px 4px 4px 0;
+    cursor: pointer;
+    outline: none;
+    background: blue;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.todoInput.edit {
+    border: 2px solid #149fff
+}
+
+.todoBtn.edit {
+    background: green;
+    padding: 16px 22px;
+}
+
+.todo-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.todo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px auto;
+    color: #fff;
+    background: purple;
+    padding: 16px;
+    border-radius: 5px;
+    width: 90%;
+    cursor: pointer;
+}
+
+
+.todo-row:nth-child(4n + 1) {
+    background-color: yellowgreen;
+
+}
+
+
+.todo-row:nth-child(4n + 2) {
+    background: purple;
+
+}
+
+.todo-row:nth-child(4n + 3) {
+    background: darkred;
+
+}
+
+
+.icons {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.delBtn {
+    margin-right: 5px;
+    color: #fff;
+    background-color: red;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.editBtn {
+    color: #fff;
+    background-color: green;
+    border: none;
+    padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
 }
