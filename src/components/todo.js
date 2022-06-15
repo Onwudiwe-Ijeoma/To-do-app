@@ -7,7 +7,7 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo, addTodo }) => {
   // const [hidden, setHidden] = useState(false);
 
   const submitUpdate = (value) => {
-    updateTodo(edit.id, value);
+    updateTodo(value);
     setEdit({
       id: null,
       value: "",
@@ -19,28 +19,23 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo, addTodo }) => {
   ) : (
     <>
       <Form onSubmit={addTodo} />
+
       {todos.map((todo, index) => (
         <div
           className={todo.isComplete ? "todo-row complete" : "todo-row"}
           key={index}
         >
-          <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-            {todo.text}
-          </div>
-
-          <div className="icons">
-            <button
-              className="editBtn"
-              onClick={() => setEdit({ id: todo.id, value: todo.text })}
-            >
-              {" "}
-              Edit{" "}
-            </button>
-            <button className="delBtn" onClick={() => removeTodo(todo.id)}>
-              {" "}
-              Delete
-            </button>
-          </div>
+          <button
+            className="editBtn"
+            onClick={() => setEdit({ id: todo.id, value: todo.text })}
+          >
+            {" "}
+            Edit{" "}
+          </button>
+          <button className="delBtn" onClick={() => removeTodo(todo.id)}>
+            {" "}
+            Delete
+          </button>
         </div>
       ))}
     </>

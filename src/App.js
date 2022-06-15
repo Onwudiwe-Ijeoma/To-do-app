@@ -1,11 +1,15 @@
 import React from "react";
-import Todolist from "./components/todolist";
+// import LocalStorageTodo from "./views/LocalStorageTodo";
+import ReduxTodo from "./views/ReduxTodo";
+// import StateStorageTodo from "./views/StateStorageTodo";
 
 function App() {
   return (
     <div className="todo-app">
       <h1>ORGANIZE YOUR DAY</h1>
-      <Todolist />
+      {/* <LocalStorageTodo />
+      <StateStorageTodo /> */}
+      <ReduxTodo />
     </div>
   );
 }
