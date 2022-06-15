@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Todo from "./todo";
+import Todo from "../components/todo";
 
-const Todolist = () => {
+const StateStorageTodo = () => {
   const [todos, setTodos] = useState([]);
 
   ////=========================add button function
@@ -62,9 +62,10 @@ const Todolist = () => {
         updateTodo={updateTodo}
         addTodo={addTodo}
       />
+
       {/* <button onClick={() => removeTodo(todos)}>Clear Task</button> */}
     </div>
   );
 };
 
-export default Todolist;
+export default StateStorageTodo;
