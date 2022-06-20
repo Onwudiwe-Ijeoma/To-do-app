@@ -35,7 +35,7 @@ const Form = (props) => {
               onChange={handleChange}
               ref={focus}
               type="text"
-              placeholder="what are you doing today?"
+              placeholder="update your todo"
               value={input}
               className="todoInput"
             />

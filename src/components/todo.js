@@ -25,17 +25,23 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo, addTodo }) => {
           className={todo.isComplete ? "todo-row complete" : "todo-row"}
           key={index}
         >
-          <button
-            className="editBtn"
-            onClick={() => setEdit({ id: todo.id, value: todo.text })}
-          >
-            {" "}
-            Edit{" "}
-          </button>
-          <button className="delBtn" onClick={() => removeTodo(todo.id)}>
-            {" "}
-            Delete
-          </button>
+          <div key={todo.id} onClick={() => completeTodo(todo.id)}>
+            {todo.text}
+          </div>
+
+          <div className="icons">
+            <button
+              className="editBtn"
+              onClick={() => setEdit({ id: todo.id, value: todo.text })}
+            >
+              {" "}
+              Edit{" "}
+            </button>
+            <button className="delBtn" onClick={() => removeTodo(todo.id)}>
+              {" "}
+              Delete
+            </button>
+          </div>
         </div>
       ))}
     </>
